@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  web:
+    container_name: php-apache
+    build: 
+      context: .
+      dockerfile: ./docker/php-apache.dockerfile
+    ports:
+      - 8000:80
+    volumes:
+      - ./pages:/var/www/html
