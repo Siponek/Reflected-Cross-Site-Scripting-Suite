@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoAlertPresentException
 from bs4 import BeautifulSoup
-
+from colorama import Fore, Style
 
 @then('I should see "{text}"')
 def step_should_see(context, text:str) -> None:
@@ -22,7 +22,7 @@ def step_should_not_see_alert(context, text:str) -> None:
         WebDriverWait(context.driver, 4).until(method=EC.alert_is_present(), message="Timed out waiting for alert")
         alert = context.driver.switch_to.alert
         alert_text : str = alert.text
-        assert text not in alert_text, f"Expected '{text}' not to be in alert, but found '{alert_text}'"
+        assert text not in alert_text, f"Expected {Fore.LIGHTCYAN_EX}'{text}'{Fore.RESET} not to be in alert, but found {Fore.LIGHTRED_EX}'{alert_text}'{Fore.RESET}"
         alert.dismiss()
         
         context.driver.quit()
