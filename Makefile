@@ -13,7 +13,7 @@ endif
 
 .PHONY: reqs
 reqs:
-	pipreqs --force --encoding=utf8 ./ --ignore ./venv-sql/
+	pipreqs --force --encoding=utf8 ./ --ignore ./$(VENV)/
 
 .PHONY: clean
 clean:
