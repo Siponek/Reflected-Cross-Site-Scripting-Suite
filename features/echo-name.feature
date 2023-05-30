@@ -17,6 +17,3 @@ Feature: echo-name.php Welcome Message
         Given I am a user accessing the "echo-name.php" page
         When I send '<style>@keyframes slidein {}</style><svg style="animation-duration:1s;animation-name:slidein;animation-iteration-count:2" onwebkitanimationiteration="alert(111)"></svg>' into query parameter "name" as XSS
         Then I should not see "111" as an alert
-
-
-# <style>@keyframes slidein {}</style><script style=\"animation-duration:1s;animation-name:slidein;animation-iteration-count:2\" onwebkitanimationiteration=\"alert(\"ATTACK\")\"></script>
