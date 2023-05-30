@@ -12,6 +12,9 @@ class RequestType(Enum):
 
 @given('I am a user accessing the "{page}" page with JS disabled')
 def step_user_page_no_js(context, page:str) -> None:
+    """Prepare the context for a user accessing a page with JS disabled. This does not include javascript.enabled = false in slelenium driver.
+    It is just for parsing the html response with beautiful soup.
+    """
     context.page = page
     context.session = Session()
     
