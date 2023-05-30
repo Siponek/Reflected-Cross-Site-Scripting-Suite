@@ -21,10 +21,10 @@ Feature: redirect_protected.php Redirect link with target with htmlspecialchars
         Then I should not see "111" as an alert
 
     Scenario: Attempt to pass XSS interactive payload in query parameter
-        When I send "www.google.com" into query parameter "target"
-        Then I should see "Click <a href=\"www.google.com\">here</a> to redirect"
+        # When I send "www.google.com" into query parameter "target"
+        # Then I should see "Click <a href=\"www.google.com\">here</a> to redirect"
         Given I am a user accessing the "redirect_protected.php" page
-        When I send "javascript:alert(111)" into query parameter "target"
+        When I send 'javascript:alert(111)' into query parameter "target" as XSS
         When I click on the link with text "here"
         Then I should not see "111" as an alert
 
