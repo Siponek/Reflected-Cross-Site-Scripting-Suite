@@ -12,7 +12,7 @@ class RequestType(Enum):
 
 @given('I am a user accessing the "{page}" page with JS disabled')
 def step_user_page_no_js(context, page:str) -> None:
-    """Prepare the context for a user accessing a page with JS disabled. This does not include javascript.enabled = false in slelenium driver.
+    """Prepare the context for a user accessing a page with JS disabled. This does not include javascript.enabled = false in selenium driver.
     It is just for parsing the html response with beautiful soup.
     """
     context.page = page
@@ -33,7 +33,6 @@ def step_given_i_am_a_user(context,page : str) -> None:
     # context.driver = webdriver.Firefox()
     context.driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
     # context.driver.implicitly_wait(4)
-
 # I send '{payload}' into query parameter "name" as XSS
 # Special version with quotes
 @when("I send \'{payload}\' into query parameter \"{query_param}\" as XSS")

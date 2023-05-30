@@ -59,4 +59,4 @@ def step_should_not_see_alert(context, text:str) -> None:
         pass
     finally:
         context.driver.quit()
-        
+
