@@ -35,6 +35,7 @@ def step_given_i_am_a_user(context,page : str) -> None:
     # context.driver.implicitly_wait(4)
 
 # I send '{payload}' into query parameter "name" as XSS
+# Special version with quotes
 @when("I send \'{payload}\' into query parameter \"{query_param}\" as XSS")
 def step_send_payload(context, payload:str, query_param:str) -> None:
     # Prepare the url

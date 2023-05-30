@@ -4,15 +4,18 @@ from behave import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoAlertPresentException
+from selenium.common.exceptions import NoAlertPresentException, TimeoutException
 from bs4 import BeautifulSoup
 from colorama import Fore, Style
 
 @then('I should see "{text}"')
 def step_should_see(context, text:str) -> None:
     # Check that the page body contains the expected text
+    # escape the text for regex
+    tmp_text = text.replace(r"\"", '"').replace(r"\'", "'")
+    # print(f"{Fore.LIGHTCYAN_EX}Expected text: {Fore.RESET}{tmp_text}")
     soup : BeautifulSoup = BeautifulSoup(context.response.text, 'html.parser')
-    assert text in soup, f'Body text: "{soup}" does not contain "{text}"'
+    assert tmp_text in str(soup), f'Body text: {str(soup)} does not contain {tmp_text}'
     
 # I should not see "ATTACK" as an alert
 @then('I should not see "{text}" as an alert')
@@ -26,7 +29,7 @@ def step_should_not_see_alert(context, text:str) -> None:
         alert.dismiss()
         
         context.driver.quit()
-    except NoAlertPresentException:
+    except TimeoutException:
         pass
     finally:
         context.driver.quit()
