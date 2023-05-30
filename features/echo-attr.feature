@@ -46,3 +46,6 @@ Feature: echo-attr.php Welcome Message with class
 
 # '><script>alert(111)</script><span '
 # '%3E%3Cscript%3Ealert(111)%3C%2Fscript%3E%3Cspan%20'
+
+# "><script>alert(111)</script><span "
+# "%3E%3Cscript%3Ealert(111)%3C%2Fscript%3E%3Cspan%20"
