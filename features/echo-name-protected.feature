@@ -10,7 +10,7 @@ Feature: echo-name-protected.php Welcome Message with htmlspecialchars
         When I send "John" into query parameter "name"
         Then I should see "Welcome John!"
 
-    Scenario: Attempt to pass XSS non-interactive payload in query parameter
+    Scenario: Attempt to pass XSS NON-INTERACTIVE payload in query parameter
         When I send "John" into query parameter "name"
         Then I should see "Welcome John!"
         #? Test only when basic functionality works so no time is wasted on selenium
