@@ -4,9 +4,7 @@ from behave import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoAlertPresentException, TimeoutException, UnexpectedAlertPresentException
-from bs4 import BeautifulSoup
-from colorama import Fore
+from selenium.common.exceptions import UnexpectedAlertPresentException
 import colorama
 
 colorama.init(autoreset=True)
