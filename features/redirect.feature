@@ -12,7 +12,7 @@ Feature: redirect.php Redirect link with target
         # A ton of problems with quotes
         Then I should see "Click <a href=\"www.google.com\">here</a> to redirect"
 
-    Scenario: Attempt to pass XSS non-interactive payload in query parameter
+    Scenario: Attempt to pass XSS NON-INTERACTIVE payload in query parameter
         When I send "www.google.com" into query parameter "target"
         Then I should see "Click <a href=\"www.google.com\">here</a> to redirect"
         #? Test only when basic functionality works so no time is wasted on selenium

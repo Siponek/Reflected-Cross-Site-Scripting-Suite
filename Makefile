@@ -42,6 +42,6 @@ up-d:
 down:
 	docker-compose down
 
-# Refacotr for behave
-# .PHONY: run-all
-# run-all: up-d venv install_reqs test down
+.PHONY: run-behave
+run-behave:
+	$(PYTHON) -m behave --color

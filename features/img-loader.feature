@@ -11,7 +11,7 @@ Feature: img-loader.php Get img from src input
         # A ton of problems with quotes
         Then I should see "<img src=\"https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg\""
 
-    Scenario: Attempt to pass XSS non-interactive payload in query parameter
+    Scenario: Attempt to pass XSS NON-INTERACTIVE payload in query parameter
         When I send "https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg" into query parameter "target"
         Then I should see "<img src=\"https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg\""
         #? Test only when basic functionality works so no time is wasted on selenium

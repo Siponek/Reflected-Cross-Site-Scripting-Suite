@@ -11,7 +11,7 @@ Feature: echo-attr.php Welcome Message with class
         # A ton of problems with quotes
         Then I should see "class=\"John\""
 
-    Scenario: Attempt to pass XSS non-interactive payload in query parameter
+    Scenario: Attempt to pass XSS NON-INTERACTIVE payload in query parameter
         When I send "John" into query parameter "name"
         Then I should see "class=\"John\""
         #? Test only when basic functionality works so no time is wasted on selenium

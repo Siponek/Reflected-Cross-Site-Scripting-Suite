@@ -12,7 +12,7 @@ Feature: redirect_protected.php Redirect link with target with htmlspecialchars
         # A ton of problems with quotes
         Then I should see "Click <a href=\"www.google.com\">here</a> to redirect"
 
-    Scenario: Attempt to pass XSS non-interactive payload in query parameter
+    Scenario: Attempt to pass XSS NON-INTERACTIVE payload in query parameter
         When I send "www.google.com" into query parameter "target"
         Then I should see "Click <a href=\"www.google.com\">here</a> to redirect"
         #? Test only when basic functionality works so no time is wasted on selenium
@@ -20,7 +20,7 @@ Feature: redirect_protected.php Redirect link with target with htmlspecialchars
         When I send '\'><script>alert(111)</script> \'' into query parameter "target" as XSS
         Then I should not see "111" as an alert
 
-    Scenario: Attempt to pass XSS interactive payload in query parameter
+    Scenario: Attempt to pass XSS INTERACTIVE payload in query parameter
         # When I send "www.google.com" into query parameter "target"
         # Then I should see "Click <a href=\"www.google.com\">here</a> to redirect"
         Given I am a user accessing the "redirect_protected.php" page
