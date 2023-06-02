@@ -54,9 +54,9 @@ def step_should_not_see_alert(context, text:str) -> None:
         assert text not in alert_text, f"Expected {Fore.LIGHTCYAN_EX}'{text}' {Fore.LIGHTRED_EX}not{Fore.RESET} to be in alert, but found {Fore.LIGHTRED_EX}'{alert_text}'{Fore.RESET}"
         alert.dismiss()
         
-        context.driver.quit()
     except TimeoutException:
         pass
     finally:
+        # context.driver.close()
         context.driver.quit()
 
